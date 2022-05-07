@@ -12,12 +12,14 @@ MATO_VARI = "pink"
 PISTEET_TAUSTAVARI = "yellow"
 TAUSTA = "#8E3E2D"
 
+
 class Mato: # Luodaan Mato luokka
 
-    def __init__(self): # Muodostetaan Mato objekti
-        self.pituus = PITUUS # Määritellään pituus
-        self.koordinaatit = [] # Määritellään koordinaatit lista
-        self.mato_ovaalit = [] # Määritellään madon osat lista
+
+    def __init__(self):  # Muodostetaan Mato objekti
+        self.pituus = PITUUS  # Määritellään pituus
+        self.koordinaatit = []  # Määritellään koordinaatit lista
+        self.mato_ovaalit = []  # Määritellään madon osat lista
 
         # Luodaan koordinaattilista ja laitetaan mato aloittamaan pelikentän vasemmasta yläkulmasta,
         # eli koordinaateista 0,0.
@@ -29,9 +31,10 @@ class Mato: # Luodaan Mato luokka
             self.mato_ovaalit.append(mato_ovaali)
 
 
-class Kalja: # Luodaan Kalja luokka
+class Kalja:  # Luodaan Kalja luokka
 
-    def __init__(self): # Muodostetaan Kalja objekti
+
+    def __init__(self):  # Muodostetaan Kalja objekti
 
         # Luodaan satunnaiset luvut x ja y koordinaatistoon:
         x = random.randint(0, (PELI_LEVEYS / RUUDUN_KOKO)-1) * RUUDUN_KOKO
@@ -49,9 +52,10 @@ class Kalja: # Luodaan Kalja luokka
         canvas.create_image(x, y, image=self.new_img, anchor=NW, tag="kalja")
 
 
-def seuraava_liike(mato, kalja): # Luodaan seuraava_liike funktio mato ja kalja parametreilla.
+def seuraava_liike(mato, kalja):  # Luodaan seuraava_liike funktio mato ja kalja parametreilla.
 
-    x, y = mato.koordinaatit[0] # määritetään madon pään koordinaatit
+
+    x, y = mato.koordinaatit[0]  # määritetään madon pään koordinaatit
 
     # Määritetään madon liike
     if suunta == "ylos":
@@ -103,7 +107,8 @@ def seuraava_liike(mato, kalja): # Luodaan seuraava_liike funktio mato ja kalja 
 
 def vaihda_suunta(uusi_suunta):
 
-    global suunta # lisätään suunta funktioon
+
+    global suunta  # lisätään suunta funktioon
 
     # Määritetään uusi suunta. 180 asteen käännöksiä ei hyväksytä.
     if uusi_suunta == 'vasen':
@@ -119,7 +124,7 @@ def vaihda_suunta(uusi_suunta):
         if suunta != 'ylos':
             suunta = uusi_suunta
 
-def tormays(mato): # Lisätään törmäys funktioon parametriksi mato
+def tormays(mato):  # Lisätään törmäys funktioon parametriksi mato
 
     x, y = mato.koordinaatit[0] # Tuodaan madonpää funktioon
 
