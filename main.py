@@ -13,26 +13,26 @@ PISTEET_TAUSTAVARI = "yellow"
 TAUSTA = "#8E3E2D"
 
 
-class Mato: # Luodaan Mato luokka
-
+class Mato:  # Luodaan Mato luokka
 
     def __init__(self):  # Muodostetaan Mato objekti
         self.pituus = PITUUS  # Määritellään pituus
         self.koordinaatit = []  # Määritellään koordinaatit lista
         self.mato_ovaalit = []  # Määritellään madon osat lista
 
-        # Luodaan koordinaattilista ja laitetaan mato aloittamaan pelikentän vasemmasta yläkulmasta,
-        # eli koordinaateista 0,0.
+        # Luodaan koordinaattilista ja laitetaan mato aloittamaan
+        # pelikentän vasemmasta yläkulmasta.
         for i in range(0, PITUUS):
             self.koordinaatit.append([0, 0])
         # Luodaan madon osat. Madon osat koostuvat "ovaaleista".
         for x, y in self.koordinaatit:
-            mato_ovaali = canvas.create_oval(x, y, x + RUUDUN_KOKO, y + RUUDUN_KOKO, fill=MATO_VARI, tag="mato")
+            mato_ovaali = canvas.create_oval(x, y, x + RUUDUN_KOKO,
+                                            y + RUUDUN_KOKO, fill=MATO_VARI, tag="mato"
+                                            )
             self.mato_ovaalit.append(mato_ovaali)
 
 
 class Kalja:  # Luodaan Kalja luokka
-
 
     def __init__(self):  # Muodostetaan Kalja objekti
 
@@ -101,7 +101,8 @@ def seuraava_liike(mato, kalja):  # Luodaan seuraava_liike funktio mato ja kalja
         game_over()
 
     else:
-        # kutsutaan seuraava_liike funktiota ja sen parametreja NOPEUS ajan (millisekuntteina) jälkeen.
+        # kutsutaan seuraava_liike funktiota ja sen parametreja
+        # NOPEUS ajan (millisekuntteina) jälkeen.
         window.after(NOPEUS, seuraava_liike, mato, kalja)
 
 
