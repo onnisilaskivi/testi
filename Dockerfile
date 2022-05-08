@@ -5,6 +5,6 @@ ADD main.py .
 ADD beer2.png .
 ADD mato.png .
 
-RUN pip install tkinter PIL random
+RUN pip install tk Pillow random2
 
 CMD ["python", "/.main.py"]
